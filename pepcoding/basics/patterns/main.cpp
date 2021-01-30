@@ -62,13 +62,48 @@ int anyBaseSub(int n2, int n1, int b){
     return res;
 }
 
+string addBinary(string a, string b) {
+        int i = a.size()-1;
+        int j = b.size()-1;
+        
+        int k = max(i,j)+1;
+        char carry = '0';
+        
+        char c[k];
+        
+        while(k >= 0){
+            
+            int sum = (int)(carry - '0');
+            cout<<sum<<endl;
+            if(i>=0) {
+                sum += (int)(a[i--] - '0');
+            }
+            if(j >= 0){
+                sum += (int)(b[i--] - '0');
+            }
+            
+            carry = sum/2+'0';
+            char pp = (char)((sum%2) + '0');
+            if (pp == '0' || pp == '1')
+            {
+            	c[k--] = (char)((sum%2) + '0');
+            }
+            
+        }
+
+        return c;
+    }
+
 int main(){
     
-    int n1, n2, b;
-    cin>>b>>n1>>n2;
+    // int n1, n2, b;
+    // cin>>b>>n1>>n2;
     
-    cout<<anyBaseSub(n1, n2, b);
-    
+    // cout<<anyBaseSub(n1, n2, b);
+    string a,b;
+    cin>>a>>b;
+
+    cout<<addBinary(a,b);
     return 0;
     
 }

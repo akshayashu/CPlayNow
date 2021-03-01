@@ -84,6 +84,57 @@ public:
 			size--;
 		}
 	}
+
+	int getFirst(){
+		if(head == NULL){
+			cout<<"List is empty! ";
+			return -1;
+		}else{
+			return head->data;
+		}
+	}
+
+	int getLast(){
+		if(head == NULL){
+			cout<<"List is empty! ";
+			return -1;
+		}else{
+			return tail->data;
+		}
+	}
+
+	int getAt(int idx){
+		if(idx == 0){
+			return getFirst();
+		}else if(idx < 0 || idx >= size){
+			return -1;
+
+		}else if(idx == size-1){
+			return getLast();
+		}else{
+			Node* temp = head;
+
+			while(idx--){
+				temp = temp->next;
+			}
+
+			return temp->data;
+		}
+	}
+
+	void reverseList(){
+		Node *cur = head;
+		Node *prev = NULL;
+
+		while(cur != NULL){
+			Node *temp = cur->next;
+			cur->next = prev;
+			prev = cur;
+			cur = temp;
+		}
+		tail = head;
+		head = prev;
+	}
 	
 };
 
@@ -107,6 +158,21 @@ int main(){
 	li->removeFirst();
 	li->display();
 	li->removeFirst();
+	li->addNode(140);
+	li->addNode(46);
+	li->addNode(68);
+	li->addNode(9);
+	li->addNode(72);
+	li->display();
+
+	cout<<"5th Indexed data = "<<li->getAt(5)<<endl;
+	cout<<"-2 Indexed data = "<<li->getAt(-2)<<endl;
+	cout<<"First Indexed data = "<<li->getFirst()<<endl;
+	cout<<"Last Indexed data = "<<li->getLast()<<endl;
+
+	cout<<"Reversing the list..."<<endl;
+	li->reverseList();
+	li->display();
 	
 
 	delete li;

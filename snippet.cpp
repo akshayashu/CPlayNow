@@ -15,6 +15,8 @@ int main(){
  
     #endif
 
+    clock_t z = clock();
+
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
@@ -28,6 +30,8 @@ int main(){
 
         cout << solve( , n) << endl;
     }
+
+    cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC) << endl;
 
     return 0;
 }

@@ -1,0 +1,10 @@
+3
+28
+abcdefghijklmnopqrstuvwxyzaa
+bcdefghijklmnopqrstuvwxyzabb
+3
+aaa
+bab
+4
+abcd
+aaab
